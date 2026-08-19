@@ -20,7 +20,51 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - sms_network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sms_backend
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: mysql+pymysql://${MYSQL_USER:-sms_user}:${MYSQL_PASSWORD:-sms_password123}@mysql:3306/${MYSQL_DATABASE:-sales_management}
+      JWT_SECRET: ${JWT_SECRET:-hosho-sales-mgmt-jwt-secret-2026-production}
+      JWT_ALGORITHM: HS256
+      JWT_EXPIRATION_MINUTES: 480
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:5173}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173,http://localhost:3000,http://localhost:80}
+      APP_ENV: production
+      APP_DEBUG: "false"
+    ports:
+      - "8000:8000"
+    networks:
+      - sms_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000/api/v1}
+    container_name: sms_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - sms_network
 
 volumes:
   mysql_data:
     driver: local
+
+networks:
+  sms_network:
+    driver: bridge
