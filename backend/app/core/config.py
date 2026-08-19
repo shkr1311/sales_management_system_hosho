@@ -1,4 +1,5 @@
 from pydantic_settings import BaseSettings
+from pydantic import field_validator
 from typing import List
 
 
@@ -21,6 +22,13 @@ class Settings(BaseSettings):
     APP_ENV: str = "development"
     APP_DEBUG: bool = True
 
+    @field_validator("DATABASE_URL", "JWT_SECRET", "FRONTEND_URL", "CORS_ORIGINS", mode="before")
+    @classmethod
+    def strip_strings(cls, v):
+        if isinstance(v, str):
+            return v.strip().replace("\r", "").replace("\n", "")
+        return v
+
     @property
     def cors_origins_list(self) -> List[str]:
         return [origin.strip() for origin in self.CORS_ORIGINS.split(",")]
@@ -31,3 +39,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+
