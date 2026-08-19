@@ -15,7 +15,7 @@ class Settings(BaseSettings):
 
     # CORS
     FRONTEND_URL: str = "http://localhost:5173"
-    CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173,https://sales-management-system-hosho.onrender.com"
+    CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173,https://sales-management-system-hosho.vercel.app,https://sales-management-system-hosho.onrender.com"
 
     # App
     APP_ENV: str = "development"
