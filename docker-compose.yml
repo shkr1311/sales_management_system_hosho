@@ -51,7 +51,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000/api/v1}
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-https://sales-management-system-hosho.onrender.com/api/v1}
     container_name: sms_frontend
     restart: unless-stopped
     depends_on:
