@@ -385,6 +385,7 @@ The system architecture, technical specifications, and operational deployment mo
 
 #### Application Screens
 - **Fig I.1:** Authentication & Role-Based Login Gateway (`/login`)
+
 - **Fig I.2:** Sales Representative – Lead Management & Conversion Pipeline (`/leads`)
 - **Fig I.3:** Sales Representative – Opportunity Stage Progression Kanban (`/opportunities`)
 - **Fig I.4:** Sales Representative – Customer Account Directory & Tiering (`/customers`)
