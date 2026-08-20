@@ -1,13 +1,3 @@
-# Enterprise Sales Management System (HOSHO DIGITAL SMS)
-
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel%20App-0070F3?style=for-the-badge&logo=vercel&logoColor=white)](https://sales-management-system-hosho.vercel.app/login)
-[![Backend API](https://img.shields.io/badge/API%20Docs-FastAPI%20Swagger-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://sales-management-system-hosho.onrender.com/api/docs)
-[![Python](https://img.shields.io/badge/Backend-FastAPI%20%7C%20SQLAlchemy%202.0-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://fastapi.tiangolo.com)
-[![React](https://img.shields.io/badge/Frontend-React%2019%20%7C%20TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
-[![Database](https://img.shields.io/badge/Database-MySQL%208.0%20%7C%20PostgreSQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com)
-
----
-
 ## 🌐 Live Application & Access
 
 - **Live Production URL:** [https://sales-management-system-hosho.vercel.app/login](https://sales-management-system-hosho.vercel.app/login)
